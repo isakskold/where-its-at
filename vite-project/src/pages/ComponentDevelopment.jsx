@@ -1,5 +1,14 @@
+import Counter from "../components/counter/Counter";
+
 const ComponentDevelopment = () => {
-  return <div></div>;
+  const initialData = "Data";
+
+  return (
+    <>
+      <Counter initialData={"Money"} />
+      <Counter initialData={"Info"} />
+    </>
+  );
 };
 
 export default ComponentDevelopment;
