@@ -1,5 +1,11 @@
+import ComponentDevelopment from "./pages/ComponentDevelopment";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <ComponentDevelopment />
+    </>
+  );
 }
 
 export default App;
