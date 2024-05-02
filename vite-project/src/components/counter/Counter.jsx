@@ -16,6 +16,8 @@ const StyledCounterBase = styled.div`
 const StyledCounterMoney = styled(StyledCounterBase)`
   width: 230px;
   height: 130px;
+  margin-left: auto;
+  margin-right: auto;
 
   & > .counter-row:first-child {
     flex-grow: 3;
@@ -35,7 +37,6 @@ const StyledCounterMoney = styled(StyledCounterBase)`
 `;
 
 const StyledCounterInfo = styled(StyledCounterBase)`
-  width: 310px;
   height: 96px;
 
   & > .counter-row:first-child {
