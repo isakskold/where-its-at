@@ -5,50 +5,49 @@ import styled from "styled-components";
 import React from "react";
 
 // Styled components with conditional rendering based on initialData prop
-const StyledCounterMoney = styled.div`
+const StyledCounterBase = styled.div`
   border: 2px solid var(--pink);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const StyledCounterMoney = styled(StyledCounterBase)`
   width: 230px;
   height: 130px;
 
-  /* Target CounterRow as the first child */
-  & > :first-child {
+  & > .counter-row:first-child {
     flex-grow: 3;
     border-bottom: 1px solid var(--pink);
     justify-content: space-around;
 
     & > p {
       font-size: 32px;
+      text-shadow: 1px 1px 0px #f56b9a;
     }
   }
 
-  /* Target CounterRow as the second child */
-  & > :nth-child(2) {
+  & > .counter-row:last-child {
     flex-grow: 1;
     justify-content: space-between;
   }
 `;
 
-const StyledCounterInfo = styled.div`
-  border: 2px solid var(--pink);
-  border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const StyledCounterInfo = styled(StyledCounterBase)`
   width: 310px;
   height: 96px;
 
-  /* Target CounterRow as the first child */
-  & > :first-child {
+  & > .counter-row:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     flex-grow: 8;
     border-bottom: 1px solid var(--pink);
   }
 
-  /* Target CounterRow as the second child */
-  & > :nth-child(2) {
+  & > .counter-row:last-child {
     flex-grow: 1;
     justify-content: space-between;
   }
@@ -59,7 +58,7 @@ const CounterRow = styled.div`
   align-items: center;
   width: 100%;
 
-  & > :nth-child(2) {
+  & > .value-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,10 +80,10 @@ const Counter = ({ initialData }) => {
 
   return (
     <StyledCounter>
-      <CounterRow>
+      <CounterRow className="counter-row">
         <Data data={initialData} />
       </CounterRow>
-      <CounterRow>
+      <CounterRow className="counter-row">
         <Btn type={decrement} />
         <Value value={0} />
         <Btn type={increment} />
