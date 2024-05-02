@@ -1,10 +1,9 @@
-import Counter from "../components/counter/Counter";
+import Events from "./events/Events";
 
 const ComponentDevelopment = () => {
   return (
     <>
-      <Counter initialData={"Money"} />
-      <Counter initialData={"Info"} />
+      <Events />
     </>
   );
 };
