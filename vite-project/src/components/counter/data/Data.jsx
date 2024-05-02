@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+const StyledMoneyParagraph = styled.p`
+  font-weight: bold;
+`;
+
 const StyledBandParagraph = styled.p`
   font-family: "SansitaOne";
   font-size: 24px;
@@ -16,7 +20,7 @@ const StyledDateTimeParagraph = styled.p`
 
 const Data = ({ data }) => {
   if (data === "Money") {
-    return <p>420 sek</p>;
+    return <StyledMoneyParagraph>420 sek</StyledMoneyParagraph>;
   } else if (data === "Info") {
     return (
       <>

@@ -25,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'SansitaOne', sans-serif;
+    font-weight: 100;
     color: var(--pink);
     font-size: 2rem;
   }
