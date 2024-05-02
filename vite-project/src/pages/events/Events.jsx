@@ -36,7 +36,7 @@ const Events = ({ initialData }) => {
       {initialData === "singleEvent" && (
         <>
           <StyledHeader>
-            <StyledH1 className="StyledH1">Events</StyledH1>
+            <StyledH1 className="StyledH1">Event info</StyledH1>
           </StyledHeader>
 
           <Counter initialData={"Money"} />
@@ -45,7 +45,7 @@ const Events = ({ initialData }) => {
       {initialData === "allSelectedEvents" && (
         <>
           <StyledHeader>
-            <StyledH1 className="StyledH1">Events</StyledH1>
+            <StyledH1 className="StyledH1">Selected Events</StyledH1>
           </StyledHeader>
           <Counter initialData={"Info"} />
           <GreenBtn initialData={"sendOrder"} />

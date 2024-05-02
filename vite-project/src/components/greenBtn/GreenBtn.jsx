@@ -6,6 +6,7 @@ const StyledGreenBtn = styled.button`
   background-color: var(--light-blue);
   border-radius: 3px;
   font-size: 22px;
+  margin-bottom: 6rem;
 `;
 
 const GreenBtn = ({ initialData }) => {

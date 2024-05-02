@@ -9,7 +9,6 @@ const ComponentDevelopment = () => {
       <Events />
       <Events initialData={"singleEvent"} />
       <Events initialData={"allSelectedEvents"} />
-      <Order />
     </>
   );
 };
