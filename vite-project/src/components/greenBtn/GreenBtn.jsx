@@ -11,7 +11,7 @@ const StyledGreenBtn = styled.button`
 const GreenBtn = ({ initialData }) => {
   return (
     <StyledGreenBtn>
-      {initialData === "addToCart" && <span>Add to Cart</span>}
+      {initialData === "addToCart" && <span>Go to cart</span>}
       {initialData === "sendOrder" && <span>Send Order</span>}
     </StyledGreenBtn>
   );

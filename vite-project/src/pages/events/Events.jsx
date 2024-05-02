@@ -1,6 +1,8 @@
 import React from "react";
 import EventItem from "../../components/eventItem/EventItem";
 import styled from "styled-components";
+import Counter from "../../components/counter/Counter";
+import GreenBtn from "../../components/greenBtn/GreenBtn";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -9,7 +11,6 @@ const StyledHeader = styled.header`
 `;
 
 const SearchForm = styled.form`
-  margin-top: 45px;
   margin-bottom: 45px;
   min-width: 100%;
 `;
@@ -24,19 +25,45 @@ const SearchInput = styled.input`
   border-radius: 3px;
 `;
 
-const StyledH1 = styled.h1``;
+const StyledH1 = styled.h1`
+  margin-top: 45px;
+  margin-bottom: 45px;
+`;
 
-const Events = () => {
+const Events = ({ initialData }) => {
   return (
     <>
-      <StyledHeader>
-        <StyledH1 className="StyledH1">Events</StyledH1>
-        <SearchForm className="SearchForm">
-          <SearchInput type="text" placeholder="Search events..." />
-        </SearchForm>
-      </StyledHeader>
+      {initialData === "singleEvent" && (
+        <>
+          <StyledHeader>
+            <StyledH1 className="StyledH1">Events</StyledH1>
+          </StyledHeader>
 
-      <EventItem />
+          <Counter initialData={"Money"} />
+        </>
+      )}
+      {initialData === "allSelectedEvents" && (
+        <>
+          <StyledHeader>
+            <StyledH1 className="StyledH1">Events</StyledH1>
+          </StyledHeader>
+          <Counter initialData={"Info"} />
+          <GreenBtn initialData={"sendOrder"} />
+        </>
+      )}
+      {!initialData && (
+        <>
+          <StyledHeader>
+            <StyledH1 className="StyledH1">Events</StyledH1>
+            <SearchForm className="SearchForm">
+              <SearchInput type="text" placeholder="Search events..." />
+            </SearchForm>
+          </StyledHeader>
+
+          <EventItem />
+          <GreenBtn initialData={"addToCart"} />
+        </>
+      )}
     </>
   );
 };

@@ -69,8 +69,11 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-PB: 1px 1px 0px 0px #000000;
     --box-shadow-WP: 1px 1px 0px 0px #F56B9A;
 
+
+    max-width: 500px;
     padding-left: 30px;
     padding-right: 30px;
+    margin: auto auto auto auto;
 
   }
 `;
