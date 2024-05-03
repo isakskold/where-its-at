@@ -20,12 +20,21 @@ const StyledSectionDescription = styled.p`
   line-height: 30px; /* Vertically center text */
   margin: 0; /* Remove default margin */
   margin-left: 20px;
+  font-weight: bold;
+`;
+
+const StyledSeatSection = styled.p`
+  margin-left: 20px;
+  color: #000000;
+  opacity: 60%;
+  font-size: 12px;
 `;
 
 const SectionInfo = () => {
   return (
     <StyledSectionInfo>
       <StyledSectionDescription>INFO</StyledSectionDescription>
+      <StyledSeatSection>Section C - seat 233</StyledSeatSection>
     </StyledSectionInfo>
   );
 };

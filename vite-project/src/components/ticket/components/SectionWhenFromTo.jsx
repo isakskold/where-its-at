@@ -11,11 +11,6 @@ const StyledSectionWhenFromTo = styled(StyledSection)`
   height: 13.33%; /* 60px / 450px * 100% */
   background-color: rgba(0, 0, 0, 0.06);
   display: flex;
-
-  :nth-child(2) {
-    border-left: 1px dotted #00000066; /* Dotted border on the left */
-    border-right: 1px dotted #00000066; /* Dotted border on the right */
-  }
 `;
 
 const StyledSectionDescription = styled.p`
@@ -25,10 +20,23 @@ const StyledSectionDescription = styled.p`
   line-height: 30px; /* Vertically center text */
   margin: 0; /* Remove default margin */
   margin-left: 20px;
+  font-weight: bold;
 `;
 
 const StyledSectionBox = styled.section`
   width: 100%;
+`;
+
+const StyledSectionBoxWithBorders = styled(StyledSectionBox)`
+  border-left: 1px dotted #00000066;
+  border-right: 1px dotted #00000066;
+`;
+
+const StyledBoxData = styled.time`
+  margin-left: 20px;
+  color: #000000;
+  opacity: 60%;
+  font-size: 18px;
 `;
 
 const SectionWhenFromTo = () => {
@@ -36,12 +44,15 @@ const SectionWhenFromTo = () => {
     <StyledSectionWhenFromTo>
       <StyledSectionBox>
         <StyledSectionDescription>WHEN</StyledSectionDescription>
+        <StyledBoxData>21 Mars</StyledBoxData>
       </StyledSectionBox>
-      <StyledSectionBox>
+      <StyledSectionBoxWithBorders>
         <StyledSectionDescription>FROM</StyledSectionDescription>
-      </StyledSectionBox>
+        <StyledBoxData>19.00</StyledBoxData>
+      </StyledSectionBoxWithBorders>
       <StyledSectionBox>
         <StyledSectionDescription>TO</StyledSectionDescription>
+        <StyledBoxData>21.00</StyledBoxData>
       </StyledSectionBox>
     </StyledSectionWhenFromTo>
   );
