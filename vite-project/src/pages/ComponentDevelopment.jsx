@@ -6,9 +6,9 @@ import Order from "./order/Order";
 const ComponentDevelopment = () => {
   return (
     <>
-      <Events />
+      {/*<Events />
       <Events initialData={"singleEvent"} />
-      <Events initialData={"allSelectedEvents"} />
+      <Events initialData={"allSelectedEvents"} />*/}
     </>
   );
 };
