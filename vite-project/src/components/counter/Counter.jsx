@@ -38,6 +38,7 @@ const StyledCounterMoney = styled(StyledCounterBase)`
 
 const StyledCounterInfo = styled(StyledCounterBase)`
   height: 96px;
+  margin-bottom: 4rem;
 
   & > .counter-row:first-child {
     display: flex;
