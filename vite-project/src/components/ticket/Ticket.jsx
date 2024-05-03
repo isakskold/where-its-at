@@ -14,6 +14,7 @@ const StyledTicket = styled.article`
   flex-direction: column;
   margin: auto;
   margin-top: 100px;
+  border-radius: 3px;
 `;
 
 const Ticket = () => {

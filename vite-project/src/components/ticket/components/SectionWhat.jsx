@@ -6,6 +6,8 @@ const StyledSection = styled.section`
   flex-direction: column;
   width: 100%;
   border-bottom: 1px dotted #00000066;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 `;
 
 const StyledSectionWhat = styled(StyledSection)`
