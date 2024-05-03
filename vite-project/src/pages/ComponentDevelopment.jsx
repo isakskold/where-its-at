@@ -1,3 +1,4 @@
+import Ticket from "../components/ticket/Ticket";
 import Events from "./events/Events";
 import Order from "./order/Order";
 
@@ -9,6 +10,7 @@ const ComponentDevelopment = () => {
       {/*<Events />
       <Events initialData={"singleEvent"} />
       <Events initialData={"allSelectedEvents"} />*/}
+      <Ticket />
     </>
   );
 };

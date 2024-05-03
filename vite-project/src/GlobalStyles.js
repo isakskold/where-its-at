@@ -39,6 +39,11 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
     }
 
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+
     button {
         appearance: none; /* Remove default browser styles */
         border: none;

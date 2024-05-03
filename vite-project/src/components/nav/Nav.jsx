@@ -10,6 +10,9 @@ const StyledNav = styled.nav`
   left: 0;
   right: 0;
   width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 9999;
   display: flex;
   text-align: center;
