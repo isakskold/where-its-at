@@ -1,5 +1,4 @@
 import Nav from "./components/nav/Nav";
-import ComponentDevelopment from "./pages/ComponentDevelopment";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Events from "./pages/events/Events";

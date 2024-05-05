@@ -3,7 +3,6 @@ import { StyledHeader } from "../Events";
 import { StyledH1 } from "../Events";
 import GreenBtn from "../../../components/greenBtn/GreenBtn";
 import Counter from "../../../components/counter/Counter";
-import { Link } from "react-router-dom";
 
 const AllSelectedEvents = () => {
   return (

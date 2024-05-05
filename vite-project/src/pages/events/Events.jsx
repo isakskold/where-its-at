@@ -1,9 +1,7 @@
 import React from "react";
 import EventItem from "../../components/eventItem/EventItem";
 import styled from "styled-components";
-import Counter from "../../components/counter/Counter";
 import GreenBtn from "../../components/greenBtn/GreenBtn";
-import { Link } from "react-router-dom";
 
 export const StyledHeader = styled.header`
   display: flex;
