@@ -33,7 +33,7 @@ const NavLink = styled.a`
   background-color: var(--pink);
   font-size: 1.5rem;
   color: var(--dark-blue);
-  text-shadow: 1px 1px 0 var(--text-white-secondary);
+  text-shadow: 0.3px 0.3px 0 var(--text-white);
 `;
 
 const Nav = () => {
