@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledNav = styled.nav`
   border-top-left-radius: 3px;
@@ -19,7 +20,7 @@ const StyledNav = styled.nav`
   align-items: center;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -39,9 +40,9 @@ const NavLink = styled.a`
 const Nav = () => {
   return (
     <StyledNav>
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/events">Events</NavLink>
-      <NavLink href="/orders">Orders</NavLink>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/events">Events</NavLink>
+      <NavLink to="/orders">Orders</NavLink>
     </StyledNav>
   );
 };

@@ -11,8 +11,8 @@ const ComponentDevelopment = () => {
       {/*<Events />
       <Events initialData={"singleEvent"} />
       <Events initialData={"allSelectedEvents"} />
-      <Ticket />*/}
-      <Home />
+      <Ticket />
+      <Home />*/}
     </>
   );
 };
