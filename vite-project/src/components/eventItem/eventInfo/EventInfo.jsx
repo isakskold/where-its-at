@@ -13,7 +13,7 @@ const StyledEventInfo = styled.div`
 
   :nth-child(2) {
     font-size: 12px;
-    font-style: italic;
+    font-family: "FiraSansIta";
     opacity: 0.8;
     margin-top: auto;
     margin-bottom: auto;
@@ -29,13 +29,16 @@ const StyledEventInfo = styled.div`
       font-size: 14px;
       color: var(--text-white-secondary);
       align-self: center;
+      font-weight: bolder;
     }
 
     :nth-child(2) {
+      font-family: "FiraSans";
       font-size: 17px;
       font-style: normal;
       color: var(--light-blue);
       align-self: center;
+      font-weight: bolder;
     }
   }
 `;

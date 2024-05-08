@@ -15,7 +15,7 @@ const StyledEventItem = styled(Link)`
 
 const EventItem = ({ event }) => {
   return (
-    <StyledEventItem to="/events/single">
+    <StyledEventItem to={`/events/single/${event.id}`}>
       <DateBox event={event} />
       <EventInfo event={event} />
     </StyledEventItem>

@@ -4,12 +4,17 @@ const GlobalStyles = createGlobalStyle`
 
     @font-face {
         font-family: 'SansitaOne';
-        src: url('../src/assets/SansitaOne.woff2') format('woff2');
+        src: url('/src/assets/SansitaOne.woff2') format('woff2');
     }
 
     @font-face {
       font-family: 'FiraSans';
-      src: url('../src/assets/FiraSans-Regular.ttf');
+      src: url('/src/assets/FiraSans-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'FiraSansIta';
+      src: url('/src/assets/FiraSans-Italic.woff2') format('woff2');
     }
 
   /* Reset default styles */

@@ -27,7 +27,7 @@ const SearchInput = styled.input`
 `;
 
 export const StyledH1 = styled.h1`
-  margin-top: 45px;
+  margin-top: 2rem;
   margin-bottom: 45px;
 `;
 

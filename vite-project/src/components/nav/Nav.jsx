@@ -32,6 +32,7 @@ const NavLink = styled(Link)`
   line-height: 4rem;
   margin: 0 4px;
   background-color: var(--pink);
+  font-family: "FiraSansIta";
   font-size: 1.5rem;
   color: var(--dark-blue);
   text-shadow: 0.3px 0.3px 0 var(--text-white);
