@@ -12,21 +12,20 @@ const StyledDateBox = styled.div`
   border-radius: 3px;
   margin-right: 25px;
 
-  & > :first-child {
+  & > p {
     font-size: 14px;
     padding-bottom: 0.2rem;
   }
-
-  & > :nth-child(2) {
-    font-size: 10px;
-  }
 `;
 
-const DateBox = () => {
+const DateBox = ({ event }) => {
+  const words = event.when.date.split(" ");
+
   return (
-    <StyledDateBox className="styledDateBox">
-      <p>Day</p>
-      <p>Month</p>
+    <StyledDateBox>
+      {words.map((word, index) => (
+        <p key={index}>{word.slice(0, 3)}</p>
+      ))}
     </StyledDateBox>
   );
 };

@@ -13,11 +13,11 @@ const StyledEventItem = styled(Link)`
   color: inherit;
 `;
 
-const EventItem = () => {
+const EventItem = ({ event }) => {
   return (
     <StyledEventItem to="/events/single">
-      <DateBox />
-      <EventInfo />
+      <DateBox event={event} />
+      <EventInfo event={event} />
     </StyledEventItem>
   );
 };

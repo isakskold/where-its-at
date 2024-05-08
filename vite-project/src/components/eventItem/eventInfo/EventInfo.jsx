@@ -40,14 +40,16 @@ const StyledEventInfo = styled.div`
   }
 `;
 
-const EventInfo = () => {
+const EventInfo = ({ event: { name, where, when, price } }) => {
+  const time = `${when.from} - ${when.to}`;
+
   return (
     <StyledEventInfo>
-      <h2>Band</h2>
-      <p>Location</p>
+      <h2>{name}</h2> {/* band */}
+      <p>{where}</p> {/* location */}
       <div>
-        <p>time-time</p>
-        <p>price</p>
+        <p>{time}</p> {/* from-to */}
+        <p>{price}</p> {/* eventPrice */}
       </div>
     </StyledEventInfo>
   );
