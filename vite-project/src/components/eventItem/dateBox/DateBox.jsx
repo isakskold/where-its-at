@@ -14,7 +14,12 @@ const StyledDateBox = styled.div`
 
   & > p {
     font-size: 14px;
-    padding-bottom: 0.2rem;
+    line-height: 14px;
+    font-weight: bolder;
+  }
+
+  & > p:last-child {
+    margin-top: 0.2rem; /* Remove margin-bottom from the last p tag */
   }
 `;
 

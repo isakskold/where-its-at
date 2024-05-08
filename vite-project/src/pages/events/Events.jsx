@@ -34,8 +34,6 @@ export const StyledH1 = styled.h1`
 const Events = () => {
   const { events, fetchEvents } = useEventStore(); // Get events and fetchEvents function from the store
 
-  console.log(events);
-
   useEffect(() => {
     fetchEvents(); // Fetch events when component mounts
   }, []);
