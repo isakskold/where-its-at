@@ -52,7 +52,7 @@ const EventInfo = ({ event: { name, where, when, price } }) => {
       <p>{where}</p> {/* location */}
       <div>
         <p>{time}</p> {/* from-to */}
-        <p>{price}</p> {/* eventPrice */}
+        <p>{price} sek</p> {/* eventPrice */}
       </div>
     </StyledEventInfo>
   );

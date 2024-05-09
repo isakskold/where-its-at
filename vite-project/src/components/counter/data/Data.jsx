@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useEventStore from "../../../store";
 
 const StyledMoneyParagraph = styled.p`
   font-weight: bold;
@@ -18,15 +19,19 @@ const StyledDateTimeParagraph = styled.p`
   color: var(--light-blue);
 `;
 
-const Data = ({ data }) => {
+const Data = ({ data, event: { name, id, when, price } }) => {
+  const time = `${when.from} - ${when.to}`;
+  const quantityInCart = useEventStore.getState().getQuantityInCart(id);
+  const totalPrice = price * quantityInCart;
+
   if (data === "Money") {
-    return <StyledMoneyParagraph>420 sek</StyledMoneyParagraph>;
+    return <StyledMoneyParagraph>{totalPrice} sek</StyledMoneyParagraph>;
   } else if (data === "Info") {
     return (
       <>
-        <StyledBandParagraph>Band</StyledBandParagraph>
+        <StyledBandParagraph>{name}</StyledBandParagraph>
         <StyledDateTimeParagraph>
-          10 month 00.00 - 00.00
+          {when.date} {time}
         </StyledDateTimeParagraph>
       </>
     );

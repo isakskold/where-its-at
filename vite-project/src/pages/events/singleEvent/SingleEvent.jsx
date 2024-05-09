@@ -46,6 +46,7 @@ const SingleEvent = () => {
   const [loading, setLoading] = useState(true); // Add loading state
   const events = useEventStore((state) => state.events);
   const event = events.find((event) => event.id === eventId);
+  const initialData = "Money";
 
   useEffect(() => {
     // Check if events data is already available
@@ -81,7 +82,7 @@ const SingleEvent = () => {
         </StyledH3>
         <StyledH4>@ {event.where}</StyledH4>
       </StyledHeader>
-      <Counter initialData={"Money"} />
+      <Counter initialData={initialData} event={event} />
     </>
   );
 };
