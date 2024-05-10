@@ -50,7 +50,7 @@ const Events = () => {
       {events.map((event) => (
         <EventItem key={event.id} event={event} />
       ))}
-      <GreenBtn initialData={"addToCart"} />
+      <GreenBtn initialData={"goToCart"} />
     </>
   );
 };

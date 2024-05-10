@@ -37,22 +37,29 @@ const StyledBoxData = styled.time`
   color: #000000;
   opacity: 60%;
   font-size: 18px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
 `;
 
-const SectionWhenFromTo = () => {
+const StyledDateBoxData = styled(StyledBoxData)`
+  margin-right: 5px; /* Add margin-right using styles from StyledBoxData */
+`;
+
+const SectionWhenFromTo = ({ eventDate, eventFrom, eventTo }) => {
   return (
     <StyledSectionWhenFromTo>
       <StyledSectionBox>
         <StyledSectionDescription>WHEN</StyledSectionDescription>
-        <StyledBoxData>21 Mars</StyledBoxData>
+        <StyledDateBoxData>{eventDate}</StyledDateBoxData>
       </StyledSectionBox>
       <StyledSectionBoxWithBorders>
         <StyledSectionDescription>FROM</StyledSectionDescription>
-        <StyledBoxData>19.00</StyledBoxData>
+        <StyledBoxData>{eventFrom}</StyledBoxData>
       </StyledSectionBoxWithBorders>
       <StyledSectionBox>
         <StyledSectionDescription>TO</StyledSectionDescription>
-        <StyledBoxData>21.00</StyledBoxData>
+        <StyledBoxData>{eventTo}</StyledBoxData>
       </StyledSectionBox>
     </StyledSectionWhenFromTo>
   );

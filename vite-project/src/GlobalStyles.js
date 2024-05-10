@@ -17,6 +17,11 @@ const GlobalStyles = createGlobalStyle`
       src: url('/src/assets/FiraSans-Italic.woff2') format('woff2');
     }
 
+    @font-face {
+      font-family: 'Barcode';
+      src: url('/src/assets/LibreBarcode128-Regular.woff2');
+    }
+
   /* Reset default styles */
   body {
     margin: 0;

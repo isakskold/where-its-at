@@ -17,11 +17,10 @@ const StyledSectionBarcode = styled(StyledSection)`
 `;
 
 const StyledBarcode = styled.p`
-  /*font-size: 101px; correct size once barcode font has been imported  */
-  font-size: 50px; //Temporary font size
+  font-size: 101px;
   color: #000000;
   opacity: 80%;
-  font-family: "Libre Barcode 128";
+  font-family: "Barcode";
 `;
 
 const StyledTicketId = styled.p`
@@ -32,10 +31,12 @@ const StyledTicketId = styled.p`
   letter-spacing: 0.3em;
 `;
 
-const SectionBarcode = () => {
+const SectionBarcode = ({ eventId }) => {
+  const truncatedEventId = eventId.slice(-5);
+
   return (
     <StyledSectionBarcode>
-      <StyledBarcode>BARCODE</StyledBarcode>
+      <StyledBarcode>{truncatedEventId}</StyledBarcode>
       <StyledTicketId>#A2ED7</StyledTicketId>
     </StyledSectionBarcode>
   );
