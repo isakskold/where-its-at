@@ -33,7 +33,7 @@ const Ticket = ({ ticket }) => {
         eventTo={when.to}
       />
       <SectionInfo />
-      <SectionBarcode eventId={id} />
+      <SectionBarcode ticketId={id} />
     </StyledTicket>
   );
 };
