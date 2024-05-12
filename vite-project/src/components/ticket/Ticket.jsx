@@ -17,14 +17,23 @@ const StyledTicket = styled.article`
   border-radius: 3px;
 `;
 
-const Ticket = () => {
+const Ticket = ({ ticket }) => {
+  const {
+    event: { name, where, when, price },
+    id,
+  } = ticket;
+
   return (
     <StyledTicket>
-      <SectionWhat />
-      <SectionWhere />
-      <SectionWhenFromTo />
+      <SectionWhat eventName={name} />
+      <SectionWhere eventLocation={where} />
+      <SectionWhenFromTo
+        eventDate={when.date}
+        eventFrom={when.from}
+        eventTo={when.to}
+      />
       <SectionInfo />
-      <SectionBarcode />
+      <SectionBarcode ticketId={id} />
     </StyledTicket>
   );
 };

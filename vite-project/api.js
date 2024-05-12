@@ -12,10 +12,3 @@ export const fetchData = async () => {
     return []; // Return an empty array if there's an error
   }
 };
-
-// Function to extract desired properties from the events
-export const getEventProperties = (event) => {
-  const { name, price, where, when } = event;
-  const { date, from, to } = when;
-  return { name, price, where, date, from, to };
-};

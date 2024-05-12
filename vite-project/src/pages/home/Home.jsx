@@ -20,7 +20,7 @@ const StyledH1 = styled.h1`
 `;
 
 const StyledH2 = styled.h2`
-  font-style: italic;
+  font-family: "FiraSansIta";
   font-size: 22px;
   font-weight: lighter;
   color: var(--text-white);

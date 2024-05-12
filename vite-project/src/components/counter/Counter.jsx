@@ -3,6 +3,7 @@ import Data from "./data/Data";
 import Value from "./value/Value";
 import styled from "styled-components";
 import React from "react";
+import useEventStore from "../../store";
 
 // Styled components with conditional rendering based on initialData prop
 const StyledCounterBase = styled.div`
@@ -38,7 +39,7 @@ const StyledCounterMoney = styled(StyledCounterBase)`
 
 const StyledCounterInfo = styled(StyledCounterBase)`
   height: 96px;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 
   & > .counter-row:first-child {
     display: flex;
@@ -72,9 +73,24 @@ const CounterRow = styled.div`
   }
 `;
 
-const Counter = ({ initialData }) => {
+const Counter = ({ initialData, event }) => {
+  const { addToCart, removeFromCart, getQuantityInCart, cart } =
+    useEventStore();
+
   const decrement = "decrement";
   const increment = "increment";
+
+  const handleIncrement = () => {
+    addToCart(event); // Add event to cart
+    console.log("Cart:", cart);
+  };
+
+  const handleDecrement = () => {
+    removeFromCart(event.id); // Remove event from cart
+    console.log("Cart:", cart);
+  };
+
+  const quantityInCart = getQuantityInCart(event.id);
 
   // Choose which StyledCounter to render based on initialData prop
   const StyledCounter =
@@ -83,12 +99,12 @@ const Counter = ({ initialData }) => {
   return (
     <StyledCounter>
       <CounterRow className="counter-row">
-        <Data data={initialData} />
+        <Data data={initialData} event={event} quantity={quantityInCart} />
       </CounterRow>
       <CounterRow className="counter-row">
-        <Btn type={decrement} />
-        <Value value={0} />
-        <Btn type={increment} />
+        <Btn type={decrement} onClick={handleDecrement} />
+        <Value value={quantityInCart} />
+        <Btn type={increment} onClick={handleIncrement} />
       </CounterRow>
     </StyledCounter>
   );

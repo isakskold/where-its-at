@@ -2,6 +2,8 @@ import React from "react";
 import EventItem from "../../components/eventItem/EventItem";
 import styled from "styled-components";
 import GreenBtn from "../../components/greenBtn/GreenBtn";
+import useEventStore from "../../store";
+import { useEffect } from "react";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -25,11 +27,17 @@ const SearchInput = styled.input`
 `;
 
 export const StyledH1 = styled.h1`
-  margin-top: 45px;
+  margin-top: 2rem;
   margin-bottom: 45px;
 `;
 
-const Events = ({ initialData }) => {
+const Events = () => {
+  const { events, fetchEvents } = useEventStore(); // Get events and fetchEvents function from the store
+
+  useEffect(() => {
+    fetchEvents(); // Fetch events when component mounts
+  }, []);
+
   return (
     <>
       <StyledHeader>
@@ -38,8 +46,11 @@ const Events = ({ initialData }) => {
           <SearchInput type="text" placeholder="Search events..." />
         </SearchForm>
       </StyledHeader>
-      <EventItem />
-      <GreenBtn initialData={"addToCart"} />
+      {/* Map through events and render EventItem for each event */}
+      {events.map((event) => (
+        <EventItem key={event.id} event={event} />
+      ))}
+      <GreenBtn initialData={"goToCart"} />
     </>
   );
 };

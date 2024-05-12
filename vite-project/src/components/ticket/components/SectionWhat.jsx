@@ -35,11 +35,11 @@ const StyledH2 = styled.h2`
   font-weight: lighter;
 `;
 
-const SectionWhat = () => {
+const SectionWhat = ({ eventName }) => {
   return (
     <StyledSectionWhat>
       <StyledSectionDescription>WHAT</StyledSectionDescription>
-      <StyledH2>Lasse Stefans</StyledH2>
+      <StyledH2>{eventName}</StyledH2>
     </StyledSectionWhat>
   );
 };
