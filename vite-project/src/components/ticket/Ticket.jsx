@@ -21,6 +21,8 @@ const Ticket = ({ ticket }) => {
   const {
     event: { name, where, when, price },
     id,
+    seat,
+    section,
   } = ticket;
 
   return (
@@ -32,7 +34,7 @@ const Ticket = ({ ticket }) => {
         eventFrom={when.from}
         eventTo={when.to}
       />
-      <SectionInfo />
+      <SectionInfo seat={seat} section={section} />
       <SectionBarcode ticketId={id} />
     </StyledTicket>
   );

@@ -26,6 +26,8 @@ When initialData is set to send order the green button will take all the events 
 When initialData is set to goToCart it will just act as a navigation link to the cart.
 
 Every ticket inside the tickets array will have another id property added to it based on how many of the same ticket there are in the array. The original event id will still exist aswell.
+
+Unique seat and section is also handled in here
 */
 
 // Function to generate random alphanumeric IDs of a specific length
@@ -42,34 +44,66 @@ const GreenBtn = ({ initialData }) => {
   const handleSendOrder = async () => {
     try {
       if (initialData === "sendOrder") {
-        // Get the events in the cart
-        const eventsInCart = useEventStore
-          .getState()
-          .events.filter((event) => useEventStore.getState().cart[event.id]);
+        const state = useEventStore.getState();
 
         // Process each event in the cart
-        eventsInCart.forEach((event) => {
+        useEventStore.getState().events.forEach((event) => {
           // Get the quantity of the event in the cart
-          const quantity = useEventStore.getState().getQuantityInCart(event.id);
+          const quantity = state.getQuantityInCart(event.id);
 
           // Generate new tickets for the event based on quantity
-          const newTickets = Array.from({ length: quantity }, () => {
-            let newId;
-            do {
-              newId = generateRandomId(5); // Generate unique ID for each ticket
-            } while (
-              useEventStore
-                .getState()
-                .tickets.some((ticket) => ticket.id === newId)
-            );
-            return {
-              id: newId,
-              event,
-            };
+          const newTickets = [];
+          const existingTickets = state.tickets.filter(
+            (ticket) => ticket.event.id === event.id
+          );
+
+          const sections = ["A", "B", "C"];
+          const randomSection =
+            sections[Math.floor(Math.random() * sections.length)];
+
+          // Find the highest seat number among existing tickets for this event
+          let highestSeat = -1;
+          existingTickets.forEach((ticket) => {
+            if (ticket.section === randomSection && ticket.seat > highestSeat) {
+              highestSeat = ticket.seat;
+            }
           });
 
+          let currentSeat = highestSeat + 1; // Start seat number from the highest existing seat number + 1
+          let isFirstTicket = true; // Flag to indicate the first ticket to adjust for adjacency
+          for (let i = 0; i < quantity; i++) {
+            let newId;
+            let isNewSeatFound = false;
+            do {
+              if (!isFirstTicket) {
+                currentSeat++; // If not the first ticket, increment seat number
+              }
+              newId = generateRandomId(5); // Generate unique ID for each ticket
+
+              // Check if any existing ticket has the same section and seat number
+              const isSeatAvailable = !existingTickets.some(
+                (ticket) =>
+                  ticket.section === randomSection &&
+                  ticket.seat === currentSeat
+              );
+
+              if (isSeatAvailable) {
+                isNewSeatFound = true;
+              }
+            } while (!isNewSeatFound);
+
+            newTickets.push({
+              id: newId,
+              event,
+              section: randomSection,
+              seat: currentSeat,
+            });
+
+            isFirstTicket = false; // Reset flag after the first ticket
+          }
+
           // Add the new tickets to the store
-          useEventStore.getState().addTickets(newTickets);
+          state.addTickets(newTickets);
         });
 
         // Empty the cart after processing all events
@@ -82,6 +116,7 @@ const GreenBtn = ({ initialData }) => {
       console.error("Error sending order:", error);
     }
   };
+
   return (
     <StyledGreenBtn
       to={initialData === "goToCart" ? "/events/allSelected" : "/orders"}
@@ -94,3 +129,5 @@ const GreenBtn = ({ initialData }) => {
 };
 
 export default GreenBtn;
+
+//Sorry för spaghetti kod i denna knapp komponent. Blev lite stress att få ihop det.

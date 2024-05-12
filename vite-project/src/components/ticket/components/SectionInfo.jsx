@@ -30,11 +30,13 @@ const StyledSeatSection = styled.p`
   font-size: 12px;
 `;
 
-const SectionInfo = () => {
+const SectionInfo = ({ seat, section }) => {
   return (
     <StyledSectionInfo>
       <StyledSectionDescription>INFO</StyledSectionDescription>
-      <StyledSeatSection>Section C - seat 233</StyledSeatSection>
+      <StyledSeatSection>
+        Section {section} - seat {seat}
+      </StyledSeatSection>
     </StyledSectionInfo>
   );
 };
